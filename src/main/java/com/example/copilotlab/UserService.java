@@ -2,6 +2,7 @@ package com.example.copilotlab;
 
 import java.util.List;
 import java.util.Locale;
+import java.util.Objects;
 
 public class UserService {
 
@@ -25,6 +26,7 @@ public class UserService {
     }
 
     public String summarize(User user) {
+        Objects.requireNonNull(user, "user must not be null");
         return user.name() + " - " + user.role() + " (" + user.team() + ")";
     }
 
