@@ -10,6 +10,7 @@
 
 - [ ] Run `mvn test`.
 - [ ] Confirm all tests pass.
+- [ ] Confirm unit tests cover blank search, case-insensitive search, role search, and no-match behavior.
 
 ## App startup
 

@@ -31,6 +31,7 @@ Run tests:
 mvn test
 ```
 
+The current unit tests include search coverage for blank input, case-insensitive matching, role-based matching, and no-result behavior.
 
 ## Run the app in GitHub Codespaces
 
