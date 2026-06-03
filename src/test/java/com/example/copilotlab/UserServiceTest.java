@@ -1,0 +1,50 @@
+package com.example.copilotlab;
+
+import org.junit.jupiter.api.Test;
+
+import java.util.List;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
+class UserServiceTest {
+
+    private final UserService userService = new UserService();
+
+    @Test
+    void returnsAllUsersWhenSearchIsBlank() {
+        List<User> users = userService.findUsers("");
+
+        assertEquals(3, users.size());
+    }
+
+    @Test
+    void returnsAllUsersWhenSearchIsNull() {
+        List<User> users = userService.findUsers(null);
+
+        assertEquals(3, users.size());
+    }
+
+    @Test
+    void findsUsersByNameCaseInsensitive() {
+        List<User> users = userService.findUsers("ada");
+
+        assertEquals(1, users.size());
+        assertEquals("Ada Lovelace", users.getFirst().name());
+    }
+
+    @Test
+    void findsUsersByTeam() {
+        List<User> users = userService.findUsers("platform");
+
+        assertEquals(1, users.size());
+        assertEquals("Grace Hopper", users.getFirst().name());
+    }
+
+    @Test
+    void returnsEmptyListWhenNoUsersMatch() {
+        List<User> users = userService.findUsers("not-a-user");
+
+        assertTrue(users.isEmpty());
+    }
+}
