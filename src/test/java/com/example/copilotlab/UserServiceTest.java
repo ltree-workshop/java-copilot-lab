@@ -30,7 +30,7 @@ class UserServiceTest {
         List<User> users = userService.findUsers("ada");
 
         assertEquals(1, users.size());
-        assertEquals("Ada Lovelace", users.getFirst().name());
+        assertEquals("Ada Lovelace", users.get(0).name());
     }
 
     @Test
@@ -38,7 +38,7 @@ class UserServiceTest {
         List<User> users = userService.findUsers("platform");
 
         assertEquals(1, users.size());
-        assertEquals("Grace Hopper", users.getFirst().name());
+        assertEquals("Grace Hopper", users.get(0).name());
     }
 
     @Test
@@ -46,5 +46,28 @@ class UserServiceTest {
         List<User> users = userService.findUsers("not-a-user");
 
         assertTrue(users.isEmpty());
+    }
+
+    @Test
+    void findsUsersByRoleHappyPath() {
+        List<User> users = userService.findUsers("Systems Developer");
+
+        assertEquals(1, users.size());
+        assertEquals("Linus Torvalds", users.get(0).name());
+    }
+
+    @Test
+    void returnsAllUsersWhenSearchIsWhitespace() {
+        List<User> users = userService.findUsers("   ");
+
+        assertEquals(3, users.size());
+    }
+
+    @Test
+    void findsUsersWithCaseInsensitiveSearch() {
+        List<User> users = userService.findUsers("mOdErNiZaTiOn");
+
+        assertEquals(1, users.size());
+        assertEquals("Ada Lovelace", users.get(0).name());
     }
 }
