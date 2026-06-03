@@ -1,0 +1,32 @@
+{
+  "name": "Java Maven Dev Environment",
+  "image": "mcr.microsoft.com/devcontainers/java:3-21",
+  "features": {
+    "ghcr.io/devcontainers/features/java:1": {
+      "version": "21",
+      "installMaven": true,
+      "installGradle": false
+    }
+  },
+  "forwardPorts": [8080],
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "vscjava.vscode-java-pack",
+        "GitHub.copilot",
+        "GitHub.copilot-chat",
+        "SonarSource.sonarlint-vscode"
+      ],
+      "settings": {
+        "java.configuration.updateBuildConfiguration": "automatic",
+        "java.compile.nullAnalysis.mode": "automatic",
+        "editor.formatOnSave": true,
+        "editor.codeActionsOnSave": {
+          "source.organizeImports": "explicit"
+        }
+      }
+    }
+  },
+  "postCreateCommand": "java -version && mvn -version",
+  "remoteUser": "vscode"
+}
