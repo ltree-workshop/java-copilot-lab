@@ -31,25 +31,6 @@ Run tests:
 mvn test
 ```
 
-## Run the app locally
-
-Start the app:
-
-```bash
-mvn exec:java
-```
-
-Open:
-
-```text
-http://localhost:8080
-```
-
-Try a search:
-
-```text
-http://localhost:8080/?search=ada
-```
 
 ## Run the app in GitHub Codespaces
 
