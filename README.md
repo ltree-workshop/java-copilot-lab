@@ -15,11 +15,8 @@ It uses:
 
 ## Start the lab
 
-Open this folder in VS Code and choose:
+Fork this repo into your own user github account
 
-```text
-Dev Containers: Reopen in Container
-```
 
 Verify the environment:
 
